@@ -3,7 +3,7 @@ require("dotenv").config() // read .env variables
 const express = require("express"); // import EXPRESS
 const helmet = require("helmet"); // IMPORT helmet to secure api-browser connections 
 const app = express(); // create server
-const port = process.env.PORT; 
+const port = process.env.PORT || 3000; 
 // ENTRY ROUTES IMPORT
 const entriesRoutes = require("./routes/entries.routes"); 
 // AUTHORS routes import
@@ -26,7 +26,7 @@ app.get("/", (_req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Blog app listening on port ${port}`)
 }); 
 
