@@ -107,7 +107,7 @@ const updateEntry = async (req, res) => {
 //DELETE http://localhost:3000/api/entries
 const deleteEntry = async (req,res) => {
     const { id_entry } = req.params;
-    if(!id_entry){
+    if(!id_entry) {
       return res.status(400).json({
         items_deleted: 0,
         error: "Mandatory id_entry to delete entry",
