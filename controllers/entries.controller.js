@@ -106,7 +106,7 @@ const updateEntry = async (req, res) => {
 
 //DELETE http://localhost:3000/api/entries
 const deleteEntry = async (req,res) => {
-    const { title } = req.params;
+    const { id_entry } = req.params;
     if(!title){
       return res.status(400).json({
         items_deleted: 0,
@@ -115,7 +115,7 @@ const deleteEntry = async (req,res) => {
     }
   
     try {
-      const response = await entry.deleteEntry(title);
+      const response = await entry.deleteEntry(id_entry);
   
       if(response === 0){
         return res.status(404).json({

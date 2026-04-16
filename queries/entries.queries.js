@@ -29,8 +29,8 @@ const queries = {
                     id_author=(SELECT id_author FROM authors WHERE email=$3), category=$4
                     WHERE title=$5`,
     
-    deleteEntry:    `DELETE entries e
-                    WHERE e.title=$1; `
+    deleteEntry:    `DELETE FROM entries e
+                    WHERE e.id_entry=$1; `
   };
 
 module.exports = queries;
