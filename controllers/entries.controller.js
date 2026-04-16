@@ -48,7 +48,7 @@ const createEntry = async (req, res) => {
         return res.status(400).json({
         items_created: 0,
         data: newEntry,
-        error: "Unvalid email",
+        error: "Invalid email",
         });
     }
     try {
@@ -70,13 +70,13 @@ const createEntry = async (req, res) => {
 // PUT 
 const updateEntry = async (req, res) => {
     const editedEntry = req.body; // {newTitle, title,content,email,category}
-    const { title, email, id_entry } = editedEntry; 
+    const { newTitle, content, email, category, title } = editedEntry; 
     
-    if (!id_entry) {
+    if (!title) {
         return res.status(400).json({
             items_edited: 0, 
             data: editedEntry, 
-            error: "Mandatory id_entry to update entry"
+            error: "Mandatory original title to update entry"
         })
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
