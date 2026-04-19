@@ -75,8 +75,8 @@ const deleteEntry = async (title) => {
     let client, result;
     try {
         client = await pool.connect();
-        const data = await client.query(queries.deleteEntry,[title])
-        result = data.rowCount
+        const data = await client.query(queries.deleteEntry, [title]); 
+        result = [data.rowCount, title]; 
     } catch (err) {
         console.log(err);
         throw err;
@@ -97,16 +97,16 @@ const entries = {
 module.exports = entries;
 
 
-// Pruebas
+// TEST
 
     /* getEntriesByEmail("birja@thebridgeschool.es")
     .then(data=>console.log(data))
  */
 
-/*
-getAllEntries()
-.then(data=>console.log(data))
-*/
+
+/* getAllEntries()
+.then(data=>console.log(data)) */
+
 
 
 /* let newEntry = {
@@ -117,7 +117,12 @@ getAllEntries()
 }
 
 createEntry(newEntry)
-    .then(data => console.log(data)) */
+    .then(data => console.log(data));  */
+
+/*      let title = "Se acabaron las mandarinas de TB"; 
+
+deleteEntry(title)
+    .then(data => console.log(data));  */
 
 /* let editedEntry = {
     new_title: "Se acabaron las Magdalenas",
