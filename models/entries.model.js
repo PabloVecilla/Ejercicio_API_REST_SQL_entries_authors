@@ -14,7 +14,7 @@ const getAllEntries = async () => {
         console.log(err);
         throw err;
     } finally {
-        if (client) client.release(); // prevents crash if pool.connect() crashes
+        if (client) client.release(); // prevents crash if pool.connect() fails
     }
     return result
 }
